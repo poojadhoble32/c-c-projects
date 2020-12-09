@@ -1,68 +1,42 @@
 #include<stdio.h>
 
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
-
-BOOL Palindrom(int*Str1)
+int CountChar(char*str,char ch)
 {
-	int*Start=NULL;
-	int*End=NULL;
+	int iCnt=0;
 
-	if(Str1==NULL)
+	if(str==NULL);
 	{
-		return FALSE;
+		printf("unable to allocate memory\n");
+		return -1;
 	}
 
-	Start=Str1;
-	End=Str1;
-
-	while(*End!='\0')
+	while(*str!='\0')
 	{
-		End++;
-	}
-	End--;
-
-	while(Start<=End)
-	{
-		if(*Start!=*End)
+		if(*str=='ch')
 		{
-			break;
+			iCnt++;
 		}
-
-		Start++;
-		End--;
+		str++;
 	}
-
-	if(Start<End)
-	{
-		return FALSE;
-	}
-	else
-	{
-		return TRUE;
-	}
+	return iCnt; 
 }
 
 int main()
 {
-	int Str[20];
-	BOOL iRet=FALSE;
+	char Arr[10];
+	char ch='\0';
+	int iRet=0;
 
 	printf("enter string\n");
-	scanf("%[^'\n']s",Str);
+	scanf("%[^'\n']s",&Arr);
 
-	iRet=Palindrom(Str);
+	printf("enter char\n");
+	scanf(" %c",&ch);
 
-	if(iRet==TRUE)
-	{
-		printf("string is palindrom\n");
-	}
-	else
-	{
-		printf("string is not palimdrom\n");
-	}
+	iRet=CountChar(Arr,ch);
+
+	printf("%d",iRet);
 
 	return 0;
 }
+

@@ -1,51 +1,34 @@
 #include<stdio.h>
 
-void Pattern(int i,int j)
+void Pattern(int iNo)
 {
-	int row=0;
-	int col=0;
+	int iCnt=0;
 
-	if(i!=j)
+	if(iNo<0)
 	{
-		return;
+		iNo=-iNo;
 	}
 
-	if((i<0)||(j<0))
+	//(2)for(iCnt=iNo;iCnt>0;iCnt--)
+	//(3,4)for(iCnt=1;iCnt<=iNo;iCnt++)
+	//(5)for(iCnt=1;iCnt<=iNo;iCnt++)
 	{
-		i=-i;
-		j=-j;
+		//2printf("%d#\t",iCnt);
+		//3printf("%d *\t",iCnt);
+		//4printf("# %d *\t",iCnt);
+		//5printf("%d\t",iCnt*2);
 	}
 
-	for(row=1;row<=i;row++)
-	{
-		
-		for(col=1;col<=j;col++)
-		{
-			if((row==1)||(row==col)||(row==i)||(col==1)||(col==j))
-			{
-                printf("*\t");
-		    }
-			else
-			{
-				printf(" \t");
-			}
-		}
-		printf("\n");
-		printf("\n");
-	}
 }
 
 int main()
-{
-	int iRow=0;
-	int iCol=0;
+{ 
+	int iValue=0;
 
-	printf("enter size of rows\n");
-	scanf("%d",&iRow);
-	printf("enter size of cols\n");
-	scanf("%d",&iCol);
+	printf("enter  number of elements\n");
+	scanf("%d",&iValue);
 
-	Pattern(iRow,iCol);
+	Pattern(iValue);
 
 	return 0;
 }
